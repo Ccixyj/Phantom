@@ -1,6 +1,6 @@
 ext {
     androidVersion = [
-            androidGradlePlugin: "3.1.4",
+            androidGradlePlugin: "3.2.0",
             compileSdk         : 28,
             buildTools         : "28.0.3",
             supportLib         : "28.0.0",

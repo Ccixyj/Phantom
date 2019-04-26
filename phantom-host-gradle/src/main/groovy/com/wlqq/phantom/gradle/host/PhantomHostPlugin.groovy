@@ -47,8 +47,7 @@ class PhantomHostPlugin implements Plugin<Project> {
                 generateCompileDependenciesTask.group = Constant.TASKS_GROUP
 
                 // depends on mergeAssets Task
-                def mergeAssetsTaskName = variant.getVariantData().getScope().getMergeAssetsTask().name
-                def mergeAssetsTask = project.tasks.getByName(mergeAssetsTaskName)
+                def mergeAssetsTask = variant.getMergeAssets()
                 if (mergeAssetsTask) {
                     generateCompileDependenciesTask.doLast {
                         new CompileDependenciesFileGenerator(project, variant, mergeAssetsTask.outputDir, 'compile_dependencies.txt').generateFile()

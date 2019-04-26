@@ -30,8 +30,8 @@ import com.android.build.gradle.tasks.MergeManifests
 import com.android.build.gradle.tasks.MergeResources
 import com.android.builder.model.Dependencies
 import com.android.builder.model.SyncIssue
-import com.android.ide.common.res2.ResourcePreprocessor
-import com.android.ide.common.res2.ResourceSet
+import com.android.ide.common.resources.ResourcePreprocessor
+import com.android.ide.common.resources.ResourceSet
 import com.android.manifmerger.ManifestProvider
 import com.android.utils.FileUtils
 import com.google.common.collect.ImmutableMap

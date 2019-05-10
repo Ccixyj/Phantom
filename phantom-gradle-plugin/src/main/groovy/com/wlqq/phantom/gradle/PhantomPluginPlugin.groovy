@@ -1,5 +1,3 @@
-
-
 /*
  * Copyright (C) 2017-2019 Manbang Group
  *
@@ -61,12 +59,12 @@ class PhantomPluginPlugin implements Plugin<Project> {
                     def generateProvidedDependenciesTask = project.task(generateProvidedDependenciesTaskName)
                     generateProvidedDependenciesTask.group = Constant.TASKS_GROUP
 
-                //depends on mergeAssets Task
-                def mergeAssetsTask = variant.getMergeAssets()
-                if (mergeAssetsTask) {
-                    generateCompileDependenciesTask.doLast {
-                        new ProvidedDependenciesFileGenerator(project, variant, mergeAssetsTask.outputDir, 'provided_dependencies_v2.txt').generateFile()
-                    }
+                    //depends on mergeAssets Task
+                    def mergeAssetsTask = variant.getMergeAssets()
+                    if (mergeAssetsTask) {
+                        generateProvidedDependenciesTask.doLast {
+                            new ProvidedDependenciesFileGenerator(project, variant, mergeAssetsTask.outputDir, 'provided_dependencies_v2.txt').generateFile()
+                        }
 
                         generateProvidedDependenciesTask.dependsOn mergeAssetsTask
                         mergeAssetsTask.finalizedBy generateProvidedDependenciesTask
